@@ -1,10 +1,11 @@
 @extends('layouts.app')
 @section('content')
-    <x-header />
-    <div class="pt-10">
-        <x-Acceuil.hero--section :name="'Serigne Abdoulaye Babou'" />
-        <x-Acceuil.expertise--section />
-        <x-Acceuil.sommaire--section />
+    <x-header :nom="$utilisateur->nom" />
+    <div class="pt-20">
+        <x-Acceuil.hero--section :prenom="$utilisateur->prenom" :nom="$utilisateur->nom" :apropos="$utilisateur->apropos" :nbre_annee_experience="$utilisateur->nbre_annee_experience" :photo="$utilisateur->photo"
+            :lien_cv="$utilisateur->lien_cv" />
+        <x-Acceuil.expertise--section :domaines="$domaines" />
+        <x-Acceuil.sommaire--section :projets="$projets" />
         <x-Acceuil.newsletter--section />
         <x-footer />
     </div>

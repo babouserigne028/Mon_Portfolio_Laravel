@@ -1,3 +1,4 @@
+@props(['localisation', 'email'])
 <div class="flex flex-col justify-center space-y-8">
     <div>
         <h1 class="text-4xl md:text-5xl font-black leading-tight tracking-tight mb-4">
@@ -17,7 +18,7 @@
                 <p class="text-xs uppercase font-bold tracking-wider text-[#4c739a]">
                     Email
                 </p>
-                <p class="text-lg font-semibold">hello@darportfolio.com</p>
+                <p class="text-lg font-semibold">{{ $email }}</p>
             </div>
         </div>
         <div class="flex items-center gap-4 group">
@@ -28,7 +29,7 @@
                 <p class="text-xs uppercase font-bold tracking-wider text-[#4c739a]">
                     Localisation
                 </p>
-                <p class="text-lg font-semibold">Dakar, liberte 6</p>
+                <p class="text-lg font-semibold">{{ $localisation }}</p>
             </div>
         </div>
     </div>
