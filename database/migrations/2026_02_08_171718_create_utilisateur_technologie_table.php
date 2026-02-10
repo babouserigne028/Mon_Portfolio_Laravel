@@ -12,17 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('utilisateur_technologie', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            // $table->uuid('id')->primary(); 
             $table->uuid('utilisateur_id');
             $table->foreign('utilisateur_id')->references('id')->on('utilisateurs')->onDelete('cascade');
+            
             $table->uuid('technologie_id');
             $table->foreign('technologie_id')->references('id')->on('technologies')->onDelete('cascade');
+            
             $table->enum('niveau_maitrise', ['Débutant', 'Intermédiaire', 'Avancé', 'Expert'])->default('Intermédiaire');
             $table->timestamps();
-            $table->unique(['utilisateur_id', 'technologie_id'], 'unique_utilisateur_technologie');
-            $table->index('utilisateur_id');
-            $table->index('technologie_id');
 
+            $table->primary(['utilisateur_id', 'technologie_id'], 'pk_user_tech');
         });
     }
 

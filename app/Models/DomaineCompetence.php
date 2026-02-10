@@ -22,4 +22,9 @@ class DomaineCompetence extends Model
             }
         });
     }
+
+    public function technologies()
+{
+    return $this->belongsToMany(Technologie::class, 'technologie_domaine_competence', 'domaine_competence_id', 'technologie_id');
+}
 }

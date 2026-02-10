@@ -12,15 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('technologie_domaine_competence', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            // 1. SUPPRIME l'ID UUID seul
+            // $table->uuid('id')->primary(); 
+
             $table->uuid('technologie_id');
             $table->foreign('technologie_id')->references('id')->on('technologies')->onDelete('cascade');
+            
             $table->uuid('domaine_competence_id');
             $table->foreign('domaine_competence_id')->references('id')->on('domaine_competences')->onDelete('cascade');
+            
             $table->timestamps();
-            $table->unique(['technologie_id', 'domaine_competence_id'], 'unique_techno_domaine');
-            $table->index('technologie_id');
-            $table->index('domaine_competence_id');;
+            $table->primary(['technologie_id', 'domaine_competence_id'], 'pk_tech_domaine');
         });
     }
 
