@@ -3,7 +3,6 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 
 class ProjetTechnologieSeeder extends Seeder
 {
@@ -23,7 +22,6 @@ class ProjetTechnologieSeeder extends Seeder
         foreach ($projets as $projet_id) {
             foreach ($technos as $techno_id) {
                 DB::table('projet_technologie')->insert([
-                    'id'             => Str::uuid(),
                     'projet_id'      => $projet_id,
                     'technologie_id' => $techno_id,
                     'created_at'     => now(),

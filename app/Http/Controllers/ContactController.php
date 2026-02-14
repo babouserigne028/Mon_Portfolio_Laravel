@@ -1,15 +1,13 @@
 <?php
-
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use Illuminate\Http\Request;
+use App\Models\Utilisateur;
 
 class ContactController extends Controller
 {
     public function contact()
     {
-        $utilisateur = User::first(); 
+        $utilisateur = Utilisateur::first();
 
         return view('pages.contact', compact('utilisateur'));
     }

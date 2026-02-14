@@ -3,7 +3,6 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
 
 class TechnologieDomaineCompetenceSeeder extends Seeder
 {
@@ -17,7 +16,6 @@ class TechnologieDomaineCompetenceSeeder extends Seeder
         ];
         foreach ($associations as $techno_id => $domaine_id) {
             DB::table('technologie_domaine_competence')->insert([
-                'id'                    => Str::uuid(),
                 'technologie_id'        => $techno_id,
                 'domaine_competence_id' => $domaine_id,
                 'created_at'            => now(),

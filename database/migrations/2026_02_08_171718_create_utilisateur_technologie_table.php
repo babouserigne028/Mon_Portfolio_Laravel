@@ -12,13 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('utilisateur_technologie', function (Blueprint $table) {
-            // $table->uuid('id')->primary(); 
             $table->uuid('utilisateur_id');
             $table->foreign('utilisateur_id')->references('id')->on('utilisateurs')->onDelete('cascade');
-            
+
             $table->uuid('technologie_id');
             $table->foreign('technologie_id')->references('id')->on('technologies')->onDelete('cascade');
-            
+
             $table->enum('niveau_maitrise', ['Débutant', 'Intermédiaire', 'Avancé', 'Expert'])->default('Intermédiaire');
             $table->timestamps();
 

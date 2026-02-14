@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
@@ -9,14 +8,16 @@ use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
     // Affiche le formulaire de login
-    public function showLoginForm() {
+    public function showLoginForm()
+    {
         return view('auth.login');
     }
 
     // Gère la tentative de connexion
-    public function login(Request $request) {
+    public function login(Request $request)
+    {
         $credentials = $request->validate([
-            'email' => ['required', 'email'],
+            'email'    => ['required', 'email'],
             'password' => ['required'],
         ]);
 
@@ -31,7 +32,8 @@ class LoginController extends Controller
     }
 
     // Déconnexion
-    public function logout(Request $request) {
+    public function logout(Request $request)
+    {
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();

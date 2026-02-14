@@ -1,11 +1,11 @@
 <?php
-namespace App\Models;
+    namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
+    use Illuminate\Foundation\Auth\User as Authenticatable;
+    use Illuminate\Support\Str;
 
-class Utilisateur extends Model
-{
+    class Utilisateur extends Authenticatable
+    {
     public $incrementing = false;
     protected $keyType   = 'string';
 
@@ -22,5 +22,10 @@ class Utilisateur extends Model
                 $model->id = (string) Str::uuid();
             }
         });
+    }
+
+    public function getAuthPassword()
+    {
+        return $this->mot_de_passe;
     }
 }

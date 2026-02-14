@@ -1,18 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <x-header :nom="$nom" />
+    <x-header :nom="$utilisateur->nom" />
 
     <div class="pt-20">
         <!-- Appel du composant avec les données du contrôleur -->
-        <x-Acceuil.hero--section 
-            :prenom="$prenom" 
-            :nom="$nom" 
-            :apropos="$apropos" 
-            :nbre_annee_experience="$nbre_annee_experience" 
-            :photo="$photo"
-            :lien_cv="$lien_cv" 
-        />
+        <x-Acceuil.hero--section :prenom="$utilisateur->prenom ?? ($utilisateur->first_name ?? '')" :nom="$utilisateur->nom" :apropos="$utilisateur->apropos" :nbre_annee_experience="$utilisateur->nbre_annee_experience" :photo="$utilisateur->photo"
+            :lien_cv="$utilisateur->lien_cv" />
 
         <x-Acceuil.expertise--section :domaines="$domaines" />
         <x-Acceuil.sommaire--section :projets="$projets" />

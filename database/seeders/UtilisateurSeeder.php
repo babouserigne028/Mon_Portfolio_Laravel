@@ -15,8 +15,8 @@ class UtilisateurSeeder extends Seeder
             'id'                    => 'c1a2b3c4-d5e6-7890-abcd-123456789abc', // UUID fixe
             'nom'                   => 'Babou',
             'prenom'                => 'Serigne Abdoulaye',
-            'email'                 => 'babouserigne028@example.com',
-            'mot_de_passe'          => bcrypt('password'),
+            'email'                 => 'babouserigne028@gmail.com',
+            'mot_de_passe'          => bcrypt('passer'),
             'photo'                 => 'Gemini_Generated_Image_o0n92ho0n92ho0n9.png',
             'apropos'               => "Je construis des applications web évolutives avec un souci d'expérience utilisateur et de code propre.\n"
             . "Je suis spécialisé dans la transformation de problèmes complexes en solutions digitales élégantes.\n"
